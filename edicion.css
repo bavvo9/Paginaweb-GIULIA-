@@ -1,0 +1,135 @@
+.navegador{
+	background-color: #F9E2DB;
+	width: 100%;
+	padding: 0px;
+}
+
+.navegador_lista{
+	display: flex;
+	flex-wrap: wrap;
+	list-style: none;
+	justify-content: space-evenly;
+}
+
+
+.navegador_lista--item{
+	margin: 10px;
+
+}
+
+.navegador_lista--item a{
+	text-decoration: none;
+	padding: 4px;
+	color: #191647;
+
+}
+
+#hero{ 
+	display: flex;
+	font-size: 30px;
+	color: #B69416;
+	height: 80vh;
+	width: 100%;
+	background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("media/portada1.jpg");/*DE ESTA FORMA LE AGREGA UN CONTRASTE A LAS LETRAS, OSCURECIENDO LA IMAGEN, SIN USAR FILTER!!!!!!*/
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	filter:contrast(100%) grayscale(0%);
+	background-attachment:fixed;
+	margin-bottom: 50px;
+ }
+
+
+#hero h1{
+	margin: auto;
+	font-family: 'Dancing Script', cursive;
+}
+
+/*************************************************CARTAS CON MINI HISTORIAS*******************************************************/
+.historias_titulo{
+	margin: 10px 42%;
+}
+
+.contenedor_historias_cartas{ /*contenedor de solo las cartas*/
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.historias-cartas{ /*carta entera*/
+	width: 250px;
+	height: 400px;
+	margin: 30px;
+	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+	border-radius: 6px;
+	overflow: hidden; /*para que no se escape el sobrante de informacion*/
+	transition: all 0.4s ease;
+}
+
+.historias-cartas:hover {
+	box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4); /*al pasar el cursor por encima eleva la sombra para dar ilusion de que sube la carta*/
+	transform: translateY(-3%); /*la carta se mueve hacia arriba*/
+}
+
+.historias-cartas-contenido{ /*parrafo y titulo de las cartas*/
+	padding: 8px;
+	text-align: center;
+}
+
+.historias-cartas-contenido h3{
+	margin-bottom: 8px;
+}
+
+/************************************************************GALERIA***********************************************************************/
+.galeria_conteiner h2{
+	text-align: center;
+	margin: 30px;
+}
+
+.galeria{
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) ; /*de esta forma habrá tantas columnas como el ancho de pantalla lo permita*/
+	grid-auto-rows: minmax(200px, auto);
+	grid-auto-flow: dense;
+	grid-gap: 20px;
+	padding: 20px;
+	margin-top: 20px;
+}
+
+.galeria_item{
+	display: flex; 
+	align-items: center;
+	justify-content: center; /*para centrar el numero de la imagen*/
+	background-size: cover; /*para que se vea bien la imagen*/
+	background-position: center; /*para centrar la imagen*/
+	transition: transform 0.3s ease-in-out;
+	border-radius: 4px;
+}
+
+.galeria_item:hover{
+	transform: scale(1.05);
+	filter: opacity(90%);
+}
+
+
+
+@media only screen and (min-width: 720px){ /*para que en moviles las imagenes se vean en columna, con el mismo tamaño todas*/
+	.wide{ /*CREO UNA CLASE QUE LE DE DOS HILERAS DE ANCHO A LA IMAGEN QUE TENGA LA CLASE*/
+		grid-column: span 2;
+	}
+
+	.tall{ /*CREO UNA CLASE QUE LE DE DOS HILERAS DE ALTO A LA IMAGEN QUE TENGA LA CLASE*/
+		grid-row: span 2;
+	}
+}
+
+
+@media only screen and (max-width: 720px){
+	.navegador_lista{ 
+		flex-direction:column;
+		align-items: center;
+	}
+}
+
